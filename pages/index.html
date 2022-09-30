@@ -33,16 +33,16 @@
 
   <script>
     tailwind.config = {
-        theme: {
-            extend: {
-                colors: {
-                    lightblue: '#f2f6fd',
-                    darkblue: '#b1cdfc'
-                }
-            }
+      theme: {
+        extend: {
+          colors: {
+            lightblue: '#f2f6fd',
+            darkblue: '#b1cdfc'
+          }
         }
+      }
     }
-</script>
+  </script>
 </head>
 
 <body class="bg-gradient-to-t from-lightblue to-darkblue">
@@ -271,13 +271,28 @@
       </div>
       <!-- End Hero -->
 
-      <div id="help" class="container d-md-flex py-4">
 
-        <div class="me-md-auto text-center text-md-start">
+      <div class="flex flex-center justify-center">
+        <form action="/question">
+          <button type="submit" formtarget="/question"
+            class="border mx-2 border-blue-500 btn-lg text-white inline-block bg-blue-500 hover:bg-blue-700  rounded-lg tracking-wide font-medium  cursor-pointer transition ease-in duration-200 px-">
+            Ask a question
+          </button>
+        </form>
+        <form action="/feedback">
+          <button type="submit" formtarget="/feedback"
+            class="border mx-2  border-blue-500 btn-lg text-white inline-block bg-blue-500 hover:bg-blue-700  rounded-lg tracking-wide font-medium  cursor-pointer transition ease-in duration-200 px-">
+            Give feedback
+          </button>
+        </form>
+      </div>
+
+      <div id="help" class="container flex flex-center justify-center text-center align-items-center py-4">
+
+        <div class="text-center ">
           <div class="copyright">
-            &copy; Copyright <strong><span>OnePage</span></strong>. All Rights Reserved
+            &copy; Copyright <strong><span>CodeBrigade</span></strong>. All Rights Reserved
           </div>
-          Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a>
         </div>
       </div>
       <div class="social-links text-center text-md-right pt-3 pt-md-0">

@@ -54,6 +54,14 @@ app.get("/", function(req,res){
    res.sendFile(__dirname + '/pages/index.html')
 });
 
+app.get("/question", function(req,res){
+  res.sendFile(__dirname + '/pages/question.html')
+});
+
+app.get("/feedback", function(req,res){
+  res.sendFile(__dirname + '/pages/feedback.html')
+});
+
 app.listen(port, () => {
     console.log(`Server started on port ${port}`);
   });

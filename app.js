@@ -31,9 +31,22 @@ const applySchema = new mongoose.Schema({
     about : String
 });
 
+const questionsSchema = new mongoose.Schema({
+    name : String,
+    description : String
+});
+
+const feedbackSchema = new mongoose.Schema({
+    description : String
+});
+
 const Job = mongoose.model("Job", jobSchema);
 
 const Apply = mongoose.model("Apply", applySchema);
+
+const Question = mongoose.model("Question", questionsSchema);
+
+const Feedback = mongoose.model("Feedback", feedbackSchema);
 
 app.get("/", function(req,res){
     const job = new Job({

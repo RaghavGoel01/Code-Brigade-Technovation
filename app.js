@@ -8,6 +8,10 @@ const app = express();
 app.use(express.static('public'))
 app.set('view engine', 'ejs');
 
+app.use(express.urlencoded({
+  extended: true
+}));
+
 
 mongoose.connect('mongodb://localhost:27017/technovation');
 
@@ -60,6 +64,24 @@ app.get("/question", function(req,res){
 
 app.get("/feedback", function(req,res){
   res.sendFile(__dirname + '/pages/feedback.html')
+});
+
+
+app.post("/feedbackSubmit", function(req,res){
+ 
+  const feedback = new Feedback({
+    mail: req.body.email,
+    subject: req.body.subject,
+    description: req.body.description
+  });
+
+  feedback.save(function(err){
+    if(err){
+      res.send(err);
+    }else{
+      res.sendFile(__dirname + "/pages/successFeedback.html")
+    }
+  });  
 });
 
 app.listen(port, () => {

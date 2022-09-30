@@ -45,25 +45,25 @@
             <p class="mb-8 lg:mb-16 font-light text-center text-gray-500 dark:text-black sm:text-xl"
                 style="font-family:Catamaran;">Got a feedback for us? Do let us know!
             </p>
-            <form action="#" class="space-y-8">
+            <form action="/feedbackSubmit" method="post" class="space-y-8">
                 <div>
                     <label for="email" class="block mb-2 text-sm font-medium text-gray-900 dark:text-black">Your
                         email</label>
-                    <input type="email" id="email"
+                    <input type="email" id="email" name="email"
                         class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-white dark:border-gray-100 dark:placeholder-gray-400 dark:text-black dark:focus:ring-primary-500 dark:focus:border-primary-500 dark:shadow-sm-light"
                         placeholder="name@gmail.com" required>
                 </div>
                 <div>
                     <label for="subject"
                         class="block mb-2 text-sm font-medium text-gray-900 dark:text-black">Subject</label>
-                    <input type="text" id="subject"
+                    <input type="text" id="subject" name="subject"
                         class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-white dark:border-gray-100 dark:placeholder-gray-400 dark:text-black dark:focus:ring-primary-500 dark:focus:border-primary-500 dark:shadow-sm-light"
                         placeholder="Good experience" required>
                 </div>
                 <div class="sm:col-span-2">
                     <label for="message" class="block mb-2 text-sm font-medium text-gray-900 dark:text-black">Your
                         feedback</label>
-                    <textarea id="message" rows="6"
+                    <textarea id="message" rows="6" name="description"
                         class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-white dark:border-gray-100 dark:placeholder-gray-400 dark:text-black dark:focus:ring-primary-500 dark:focus:border-primary-500 dark:shadow-sm-light"
                         placeholder="Leave a feedback..."></textarea>
                 </div>

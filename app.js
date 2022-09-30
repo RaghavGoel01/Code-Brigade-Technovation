@@ -9,9 +9,7 @@ app.use(express.static('public'))
 app.set('view engine', 'ejs');
 
 
-mongoose.connect('mongodb+srv://rakshitgondwal:chitkararakshit@cluster0.rtnxftk.mongodb.net/technovation',{
-  useNewUrlParser : true
-});
+mongoose.connect('mongodb://localhost:27017/technovation');
 
 const jobSchema = new mongoose.Schema({
     name : String,
@@ -21,7 +19,6 @@ const jobSchema = new mongoose.Schema({
     requirement : String,
     contact : String,
     email : String,
-    salary : String,
     wage : String
   });
 
@@ -39,7 +36,31 @@ const Job = mongoose.model("Job", jobSchema);
 const Apply = mongoose.model("Apply", applySchema);
 
 app.get("/", function(req,res){
-    res.send("Hi");
+    const job = new Job({
+        name : "Rakshit",
+        jobName : "Developer",
+        jobDescription : "To maintain website",
+        location : "Chandigarh",
+        requirement : "1 year of experience",
+        contact : "1234",
+        email : "123@gmail.com",
+        wage : "2000"
+      });
+      
+      job.save();
+    
+    
+      const apply = new Apply({
+        name : "Raghav",
+        age : "18",
+        contact : "1234567",
+        location : "Haryana",
+        about : "Good boy"
+      });
+      
+      apply.save();
+
+      res.send("Success!")
 });
 
 app.listen(port, () => {

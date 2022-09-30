@@ -51,31 +51,7 @@ const Question = mongoose.model("Question", questionsSchema);
 const Feedback = mongoose.model("Feedback", feedbackSchema);
 
 app.get("/", function(req,res){
-    const job = new Job({
-        name : "Rakshit",
-        jobName : "Developer",
-        jobDescription : "To maintain website",
-        location : "Chandigarh",
-        requirement : "1 year of experience",
-        contact : "1234",
-        email : "123@gmail.com",
-        wage : "2000"
-      });
-      
-      job.save();
-    
-    
-      const apply = new Apply({
-        name : "Raghav",
-        age : "18",
-        contact : "1234567",
-        location : "Haryana",
-        about : "Good boy"
-      });
-      
-      apply.save();
-
-      res.send("Success!")
+   res.sendFile(__dirname + '/pages/index.html')
 });
 
 app.listen(port, () => {

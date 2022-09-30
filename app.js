@@ -37,6 +37,8 @@ const questionsSchema = new mongoose.Schema({
 });
 
 const feedbackSchema = new mongoose.Schema({
+    mail : String ,
+    subject : String,
     description : String
 });
 

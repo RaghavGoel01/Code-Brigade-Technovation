@@ -5,7 +5,7 @@
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-  <title>OnePage Bootstrap Template - Index</title>
+  <title>Seach Jobs</title>
   <meta content="" name="description">
   <meta content="" name="keywords">
   <script src="https://cdn.tailwindcss.com"></script>
@@ -30,12 +30,25 @@
   <!-- Template Main CSS File -->
   <link href="../public/css/style.css" rel="stylesheet">
   <link rel="stylesheet" href="../public/css/lists.css">
+
+  <script>
+    tailwind.config = {
+        theme: {
+            extend: {
+                colors: {
+                    lightblue: '#f2f6fd',
+                    darkblue: '#b1cdfc'
+                }
+            }
+        }
+    }
+</script>
 </head>
 
-<body>
+<body class="bg-gradient-to-t from-lightblue to-darkblue">
 
   <!-- ======= Header ======= -->
-  <header id="header" class="fixed-top">
+  <header id="header" class="">
     <div class="container d-flex align-items-center justify-content-between">
 
       <h1 class="logo"><a href="index.html">Job Search</a></h1>
@@ -90,23 +103,23 @@
                   <div class="col-md-4 col-lg-5 my-3">
                     <div class="select-container ">
                       <input type="text"
-                        class="custom-select border border-blue-500 hover:border-transparent rounded-lg"
-                        placeholder="Enter Name ">
+                        class="custom-select border border-blue-500 hover:border-black rounded-lg text-black"
+                        placeholder="Enter Location ">
                     </div>
                   </div>
 
                   <div class="col-md-4 col-lg-5 my-3">
                     <div class="select-container ">
                       <input type="text"
-                        class="custom-select border border-blue-500 hover:border-transparent rounded-lg"
-                        placeholder="Graduation Year">
+                        class="custom-select border border-blue-500 hover:border-transparent rounded-lg text-black"
+                        placeholder="Enter a keyword">
 
 
                     </div>
                   </div>
                   <div class="col-md-4 col-lg-2 my-3">
                     <button type="button"
-                      class="btn border border-blue-500 hover:border-transparent btn-lg text-black w-100 d-sm-inline-block bg-grey hover:bg-purple-900 hover:text-white rounded-lg tracking-wide font-medium  cursor-pointer transition ease-in duration-200 px-">
+                      class="border border-blue-500 btn-lg text-white w-100 d-sm-inline-block bg-blue-500 hover:bg-blue-700  rounded-lg tracking-wide font-medium  cursor-pointer transition ease-in duration-200 px-">
                       Search
                     </button>
                   </div>
@@ -114,7 +127,7 @@
               </form>
 
               <div class="filter-result">
-                <p class="mb-30 ff-montserrat">Total Job Openings : 89</p>
+                <p class="mb-30 ff-montserrat">Total Job Openings : 30</p>
 
                 <div class="job-box d-md-flex align-items-center justify-content-between mb-30 bg-white h-full w-full">
                   <div class="job-left my-3 d-md-flex align-items-center flex-wrap ">

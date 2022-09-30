@@ -36,6 +36,7 @@ const applySchema = new mongoose.Schema({
 });
 
 const questionsSchema = new mongoose.Schema({
+    mail : String,
     name : String,
     description : String
 });
@@ -83,6 +84,25 @@ app.post("/feedbackSubmit", function(req,res){
     }
   });  
 });
+
+
+app.post("/questionSubmit", function(req,res){
+
+  const question = new Question({
+    mail : req.body.email,
+    name : req.body.fName,
+    description : req.body.message
+  });
+
+  question.save(function(err){
+    if(err){
+      res.send(err);
+    }else{
+      res.sendFile(__dirname + "/pages/successQuestion.html")
+    }
+  })
+
+})
 
 app.listen(port, () => {
     console.log(`Server started on port ${port}`);

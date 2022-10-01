@@ -12,8 +12,10 @@ app.use(express.urlencoded({
   extended: true
 }));
 
-
 mongoose.connect('mongodb://localhost:27017/technovation');
+
+
+//////////////////////////////////////// SCHEMAS //////////////////////////////////////////////////////////////////////
 
 const jobSchema = new mongoose.Schema({
     name : String,
@@ -47,6 +49,8 @@ const feedbackSchema = new mongoose.Schema({
     description : String
 });
 
+///////////////////////////////////////////// MODELS ///////////////////////////////////////////////////////////////////////////
+
 const Job = mongoose.model("Job", jobSchema);
 
 const Apply = mongoose.model("Apply", applySchema);
@@ -55,8 +59,21 @@ const Question = mongoose.model("Question", questionsSchema);
 
 const Feedback = mongoose.model("Feedback", feedbackSchema);
 
+/////////////////////////////////////////////////// GET FUNCTIONS  //////////////////////////////////////////////////////////////////////
+
+
 app.get("/", function(req,res){
-   res.render("index");
+   Job.find({}, function(err,jobs){
+
+    if(err){
+      console.log(err);
+    }else{
+      res.render("index", {
+        postedJobs : jobs
+      });
+    }
+
+   })
 });
 
 app.get("/question", function(req,res){
@@ -66,6 +83,9 @@ app.get("/question", function(req,res){
 app.get("/feedback", function(req,res){
   res.sendFile(__dirname + '/pages/feedback.html')
 });
+
+
+/////////////////////////////////////////////////////  POST FUNCTIONS  /////////////////////////////////////////////////////////////////////////////////
 
 
 app.post("/feedbackSubmit", function(req,res){
@@ -100,9 +120,12 @@ app.post("/questionSubmit", function(req,res){
     }else{
       res.sendFile(__dirname + "/pages/successQuestion.html")
     }
-  })
+  });
 
-})
+});
+
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 app.listen(port, () => {
     console.log(`Server started on port ${port}`);

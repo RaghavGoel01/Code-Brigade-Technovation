@@ -131,32 +131,39 @@
               <div class="filter-result">
                 <p class="mb-30 ff-montserrat">Total Job Openings : 30</p>
 
-                <div class="job-box d-md-flex align-items-center justify-content-between mb-30 bg-white h-full w-full">
-                  <div class="job-left my-3 d-md-flex align-items-center flex-wrap ">
-                    <form action="/jobDetails" method="post">
-                      <div class="job-content">
-                        <h5 class=" text-md-left text-black ml-2 mb-3 font-bold"
-                          style="font-family: 'Montserrat', sans-serif;">Electrician</h5>
-                        <ul class="d-md-flex text-left flex-wrap text-capitalize ff-open-sans">
-                          <li class="mr-md-4 text-black">
-                            <i class="fa-sharp fa-solid fa-coins mr-2 text-black"></i> 400/day
-                          </li>
-                          <li class="mr-md-4 text-black">
-                            <i class="fas fa-map-marker-alt mr-2 text-black"></i> Chandigarh
-                          </li>
-                          <li class="mr-md-4 text-black">
-                            <i class="fa-regular fa-clock mr-2 text-black"></i>2 months
-                          </li>
-                        </ul>
-                      </div>
-                    </form>
 
+                <% postedJobs.forEach(function(element){  %>
+                 
+                  <div class="job-box d-md-flex align-items-center justify-content-between mb-30 bg-white h-full w-full">
+                    <div class="job-left my-3 d-md-flex align-items-center flex-wrap ">
+                      <form action="/jobDetails" method="post">
+                        <div class="job-content">
+                          <h5 class=" text-md-left text-black ml-2 mb-3 font-bold"
+                            style="font-family: 'Montserrat', sans-serif;"><%= element.name%></h5>
+                          <ul class="d-md-flex text-left flex-wrap text-capitalize ff-open-sans">
+                            <li class="mr-md-4 text-black">
+                              <i class="fa-sharp fa-solid fa-coins mr-2 text-black"></i> <%= element.wage%>
+                            </li>
+                            <li class="mr-md-4 text-black">
+                              <i class="fas fa-map-marker-alt mr-2 text-black"></i> <%= element.location%>
+                            </li>
+                            <li class="mr-md-4 text-black">
+                              <i class="fa-regular fa-clock mr-2 text-black"></i><%= element.duration%>
+                            </li>
+                          </ul>
+                        </div>
+                      </form>
+  
+                    </div>
+                    <div class="job-right my-4 flex-shrink-0">
+                      <a href="#" class="btn-primary btn">
+                        More Details</a>
+                    </div>
                   </div>
-                  <div class="job-right my-4 flex-shrink-0">
-                    <a href="#" class="btn-primary btn">
-                      More Details</a>
-                  </div>
-                </div>
+                <%  }); %>
+                <br>
+
+                
 
               </div>
             </div>

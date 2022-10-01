@@ -1,7 +1,6 @@
 require('dotenv').config()
 const express = require('express');
 const mongoose = require('mongoose');
-const port = 3000;
 
 const app = express();
 
@@ -200,6 +199,6 @@ app.post("/search", function (req, res) {
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-app.listen(port || process.env.PORT, () => {
-  console.log(`Server started on port ${port}`);
+app.listen(process.env.PORT, () => {
+  console.log(`Server started on port`);
 });

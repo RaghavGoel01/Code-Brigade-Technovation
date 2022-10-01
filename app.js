@@ -200,6 +200,6 @@ app.post("/search", function (req, res) {
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-app.listen(port, () => {
+app.listen(port || process.env.PORT, () => {
   console.log(`Server started on port ${port}`);
 });

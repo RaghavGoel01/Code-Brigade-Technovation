@@ -12,7 +12,7 @@ app.use(express.urlencoded({
   extended: true
 }));
 
-mongoose.connect('mongodb://localhost:27017/technovation');
+mongoose.connect('mongodb+srv://rakshitgondwal:chitkararakshit@cluster0.rtnxftk.mongodb.net/technovation');
 
 
 //////////////////////////////////////// SCHEMAS //////////////////////////////////////////////////////////////////////

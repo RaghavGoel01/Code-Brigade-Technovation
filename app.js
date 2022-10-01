@@ -20,7 +20,7 @@ const jobSchema = new mongoose.Schema({
     jobName : String,
     jobDescription : String,
     location : String,
-    requirement : String,
+    duration : String,
     contact : String,
     email : String,
     wage : String
@@ -56,7 +56,7 @@ const Question = mongoose.model("Question", questionsSchema);
 const Feedback = mongoose.model("Feedback", feedbackSchema);
 
 app.get("/", function(req,res){
-   res.sendFile(__dirname + '/pages/index.html')
+   res.render("index");
 });
 
 app.get("/question", function(req,res){

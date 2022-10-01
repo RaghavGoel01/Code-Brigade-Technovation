@@ -1,7 +1,7 @@
 require('dotenv').config()
 const express = require('express');
 const mongoose = require('mongoose');
-const port = 3000; 
+const port = 3000;
 
 const app = express();
 
@@ -18,35 +18,35 @@ mongoose.connect('mongodb://localhost:27017/technovation');
 //////////////////////////////////////// SCHEMAS //////////////////////////////////////////////////////////////////////
 
 const jobSchema = new mongoose.Schema({
-    name : String,
-    jobName : String,
-    jobDescription : String,
-    location : String,
-    duration : String,
-    contact : String,
-    email : String,
-    wage : String
-  });
+  name: String,
+  jobName: String,
+  jobDescription: String,
+  location: String,
+  duration: String,
+  contact: String,
+  email: String,
+  wage: String
+});
 
 
 const applySchema = new mongoose.Schema({
-    name : String,
-    age : String,
-    contact : String,
-    location : String,
-    about : String
+  name: String,
+  age: String,
+  contact: String,
+  location: String,
+  about: String
 });
 
 const questionsSchema = new mongoose.Schema({
-    mail : String,
-    name : String,
-    description : String
+  mail: String,
+  name: String,
+  description: String
 });
 
 const feedbackSchema = new mongoose.Schema({
-    mail : String ,
-    subject : String,
-    description : String
+  mail: String,
+  subject: String,
+  description: String
 });
 
 ///////////////////////////////////////////// MODELS ///////////////////////////////////////////////////////////////////////////
@@ -62,71 +62,96 @@ const Feedback = mongoose.model("Feedback", feedbackSchema);
 /////////////////////////////////////////////////// GET FUNCTIONS  //////////////////////////////////////////////////////////////////////
 
 
-app.get("/", function(req,res){
-   Job.find({}, function(err,jobs){
+app.get("/", function (req, res) {
+  Job.find({}, function (err, jobs) {
 
-    if(err){
+    if (err) {
       console.log(err);
-    }else{
+    } else {
       res.render("index", {
-        postedJobs : jobs
+        postedJobs: jobs
       });
     }
 
-   })
+  })
 });
 
-app.get("/question", function(req,res){
+app.get("/question", function (req, res) {
   res.sendFile(__dirname + '/pages/question.html')
 });
 
-app.get("/feedback", function(req,res){
+app.get("/feedback", function (req, res) {
   res.sendFile(__dirname + '/pages/feedback.html')
+});
+
+app.get("/createJob", function (req, res) {
+  res.sendFile(__dirname + "/pages/createJob.html");
 });
 
 
 /////////////////////////////////////////////////////  POST FUNCTIONS  /////////////////////////////////////////////////////////////////////////////////
 
 
-app.post("/feedbackSubmit", function(req,res){
- 
+app.post("/feedbackSubmit", function (req, res) {
+
   const feedback = new Feedback({
     mail: req.body.email,
     subject: req.body.subject,
     description: req.body.description
   });
 
-  feedback.save(function(err){
-    if(err){
+  feedback.save(function (err) {
+    if (err) {
       res.send(err);
-    }else{
+    } else {
       res.sendFile(__dirname + "/pages/successFeedback.html")
     }
-  });  
+  });
 });
 
 
-app.post("/questionSubmit", function(req,res){
+app.post("/questionSubmit", function (req, res) {
 
   const question = new Question({
-    mail : req.body.email,
-    name : req.body.fName,
-    description : req.body.message
+    mail: req.body.email,
+    name: req.body.fName,
+    description: req.body.message
   });
 
-  question.save(function(err){
-    if(err){
+  question.save(function (err) {
+    if (err) {
       res.send(err);
-    }else{
+    } else {
       res.sendFile(__dirname + "/pages/successQuestion.html")
     }
   });
 
 });
 
+app.post("/jobCreate", function (req, res) {
+  const job = new Job({
+    name: req.body.jName,
+    jobName: req.body.jTitle,
+    jobDescription: req.body.jDesc,
+    location: req.body.jLocation,
+    duration: req.body.jDuration,
+    contact: req.body.jPno,
+    email: req.body.jMail,
+    wage: req.body.jWage  
+  });
+
+  job.save(function (err) {
+    if (err) {
+      console.log(err);
+    } else {
+      res.redirect("/");
+    }
+  })
+
+});
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 app.listen(port, () => {
-    console.log(`Server started on port ${port}`);
-  });
+  console.log(`Server started on port ${port}`);
+});

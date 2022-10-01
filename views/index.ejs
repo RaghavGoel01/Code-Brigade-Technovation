@@ -84,7 +84,7 @@
         </div>
       </div>
       <div class="text-center">
-        <a href="#about" class="btn-get-started scrollto">Post a new job</a>
+        <a href="/createJob" class="btn-get-started scrollto">Post a new job</a>
 
         <h2 style="
         margin-top: 4rem;
@@ -139,10 +139,10 @@
                       <form action="/jobDetails" method="post">
                         <div class="job-content">
                           <h5 class=" text-md-left text-black ml-2 mb-3 font-bold"
-                            style="font-family: 'Montserrat', sans-serif;"><%= element.name%></h5>
+                            style="font-family: 'Montserrat', sans-serif;"><%= element.jobName%></h5>
                           <ul class="d-md-flex text-left flex-wrap text-capitalize ff-open-sans">
                             <li class="mr-md-4 text-black">
-                              <i class="fa-sharp fa-solid fa-coins mr-2 text-black"></i> <%= element.wage%>
+                              <i class="fa-sharp fa-solid fa-coins mr-2 text-black"></i> <%= element.wage%>Rs / Day
                             </li>
                             <li class="mr-md-4 text-black">
                               <i class="fas fa-map-marker-alt mr-2 text-black"></i> <%= element.location%>

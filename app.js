@@ -92,6 +92,10 @@ app.get("/apply", function (req, res) {
   res.sendFile(__dirname + "/pages/apply.html")
 })
 
+app.get("/skills", function(req,res){
+  res.sendFile(__dirname+"/pages/skills.html")
+});
+
 
 /////////////////////////////////////////////////////  POST FUNCTIONS  /////////////////////////////////////////////////////////////////////////////////
 

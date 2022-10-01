@@ -67,7 +67,7 @@ app.get("/", function (req, res) {
     if (err) {
       console.log(err);
     } else {
-      res.render("index", {
+      res.render("english/index", {
         postedJobs: jobs
       });
     }
@@ -105,7 +105,7 @@ app.get("/hindi", function (req, res) {
     if (err) {
       console.log(err);
     } else {
-      res.render("indexHindi", {
+      res.render("hindi/indexHindi", {
         postedJobs: []
       });
     }
@@ -114,23 +114,23 @@ app.get("/hindi", function (req, res) {
 });
 
 app.get("/questionHindi", function (req, res) {
-  res.sendFile(__dirname + '/pages/hindi/question.html')
+  res.sendFile(__dirname + '/pages/hindi/questionHindi.html')
 });
 
 app.get("/feedbackHindi", function (req, res) {
-  res.sendFile(__dirname + '/pages/hindi/feedback.html')
+  res.sendFile(__dirname + '/pages/hindi/feedbackHindi.html')
 });
 
 app.get("/createJobHindi", function (req, res) {
-  res.sendFile(__dirname + "/pages/hindi/createJob.html");
+  res.sendFile(__dirname + "/pages/hindi/createJobHindi.html");
 });
 
 app.get("/applyHindi", function (req, res) {
-  res.sendFile(__dirname + "/pages/hindi/apply.html")
+  res.sendFile(__dirname + "/pages/hindi/applyHindi.html")
 })
 
 app.get("/skillsHindi", function(req,res){
-  res.sendFile(__dirname+"/pages/hindi/skills.html")
+  res.sendFile(__dirname+"/pages/hindi/skillsHindi.html")
 });
 
 
@@ -220,7 +220,7 @@ app.post("/search", function (req, res) {
     } else {
       for (var i = 0; i < jobs.length; i++) {
         if (jobs[i].location == req.body.reqLocation || jobs[i].jobName == req.body.reqKeyword) {
-          res.render("searched", {
+          res.render("english/searched", {
             searchName: jobs[i].jobName,
             searchWage: jobs[i].wage,
             searchLocation: jobs[i].location,
@@ -321,7 +321,7 @@ app.post("/searchHindi", function (req, res) {
     } else {
       for (var i = 0; i < jobs.length; i++) {
         if (jobs[i].location == req.body.reqLocation || jobs[i].jobName == req.body.reqKeyword) {
-          res.render("searched", {
+          res.render("hindi/searched", {
             searchName: jobs[i].jobName,
             searchWage: jobs[i].wage,
             searchLocation: jobs[i].location,

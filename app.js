@@ -88,8 +88,8 @@ app.get("/createJob", function (req, res) {
   res.sendFile(__dirname + "/pages/createJob.html");
 });
 
-app.get("/apply", function(req,res){
-  res.sendFile(__dirname + "/")
+app.get("/apply", function (req, res) {
+  res.sendFile(__dirname + "/pages/apply.html")
 })
 
 
@@ -141,7 +141,7 @@ app.post("/jobCreate", function (req, res) {
     duration: req.body.jDuration,
     contact: req.body.jPno,
     email: req.body.jMail,
-    wage: req.body.jWage  
+    wage: req.body.jWage
   });
 
   job.save(function (err) {
@@ -154,22 +154,39 @@ app.post("/jobCreate", function (req, res) {
 
 });
 
+app.post("/applied", function (req, res) {
+  const apply = new Apply({
+    name: req.body.name,
+    age: req.body.age,
+    contact: req.body.pno,
+    location: req.body.location,
+    about: req.body.desc
+  });
 
-app.post("/search", function(req,res){
-  Job.find({}, function(err, jobs){
-    if(err){
+  apply.save(function (err) {
+    if (err) {
       console.log(err);
-    }else{
-      for(var i = 0; i< jobs.length; i++){
-        if(jobs[i].location == req.body.reqLocation || jobs[i].jobName == req.body.reqKeyword){
+    } else {
+      res.redirect("/");
+    }
+  })
+});
+
+app.post("/search", function (req, res) {
+  Job.find({}, function (err, jobs) {
+    if (err) {
+      console.log(err);
+    } else {
+      for (var i = 0; i < jobs.length; i++) {
+        if (jobs[i].location == req.body.reqLocation || jobs[i].jobName == req.body.reqKeyword) {
           res.render("searched", {
-            searchName : jobs[i].jobName,
-            searchWage : jobs[i].wage,
-            searchLocation : jobs[i].location,
+            searchName: jobs[i].jobName,
+            searchWage: jobs[i].wage,
+            searchLocation: jobs[i].location,
             searchDuration: jobs[i].duration
           })
-        }else{
-          res.sendFile(__dirname +"/pages/fail.html")
+        } else {
+          res.sendFile(__dirname + "/pages/fail.html")
         }
       }
     }

@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+    <meta charset="utf-8">
+    <title>नौकरी के लिए आवेदन    </title>
+    <!-- Google Fonts Link -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Catamaran:wght@100;200;300;400;500;600;700;800;900&family=Ubuntu:wght@300;400;500;700&display=swap"
+        rel="stylesheet">
+    <!-- Tailwind CDN Link -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <script src="jquery-3.6.0.min.js"></script>
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        lightblue: '#f2f6fd',
+                        darkblue: '#b1cdfc'
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- Stylesheet Link -->
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+
+<body class="bg-gradient-to-b from-lightblue to-darkblue md:pb-20 md:mt-20 sm:pb-4 sm:mt-4">
+    <form class="" action="appliedHindi" method="post">
+
+
+        <div class="px-8 bg-white mx-auto rounded-3xl h-full pb-8 justify-center w-80 md:w-fit">
+            <div>
+                <h1 class="sm:text-3xl md:text-3xl font-extrabold text-center pt-8 pb-2"
+                    style=" font-family: 'Ubuntu', sans-serif;">नौकरी के लिए आवेदन</h1>
+                <p class="sm:text-sm md:text-lg mx-0 text-gray-600 text-center mb-3 mt-2"
+                    style="font-family: 'Catamaran', sans-serif;">कृपया अपनी जानकारी भरें और नियोक्ता को भेजें</p>
+            </div>
+            <div class="md:space-y-6 sm:space-y-3">
+                <div class="">
+                    <label for="name" class="" style="font-family: 'Catamaran', sans-serif;">नाम
+                    </label>
+                    <input type="text" id="name" name="" placeholder="रजत कुमार" name="name"
+                        class="px-3 py-3 w-full border border-gray-600 rounded-lg focus:outline-none focus:border-blue-400 mt-1">
+
+                </div>
+                <div class="">
+
+                    <label for="age" class="" style="font-family: 'Catamaran', sans-serif;">आयु</label>
+                    <input type="text" id="age" name="" placeholder="30" name="age"
+                        class="px-3 py-3 w-full border border-gray-600 rounded-lg focus:outline-none focus:border-blue-400 mt-1">
+
+                </div>
+                <div class="">
+                    <label for="mobile-no" class="" style="font-family: 'Catamaran', sans-serif;">मोबाइल नंबर</label>
+                    <input type="text" id="mobile-no" name="" placeholder="987654321" name="pno"
+                        class="px-3 py-3 w-full border border-gray-600 rounded-lg focus:outline-none focus:border-blue-400 mt-1">
+
+                </div>
+
+                <div <label for="location" class="" style="font-family: 'Catamaran', sans-serif;">स्थान</label>
+                    <input type="text" id="location" name="" placeholder="उत्तर प्रदेश, अलीगढ़" name="location"
+                        class="px-3 py-3 w-full border border-gray-600 rounded-lg focus:outline-none focus:border-blue-400 mt-1">
+
+                </div>
+
+
+                <div class="">
+
+                    <label for="description" class="" style="font-family: 'Catamaran', sans-serif;">के बारे में</label>
+                    <input type="text" id="description" name="" placeholder="बिजली मिस्त्री" name="desc"
+                        class="px-3 py-3 w-full border border-gray-600 rounded-lg focus:outline-none focus:border-blue-400 mt-1">
+
+                </div>
+                <button type="submit" style="font-family: 'Catamaran', sans-serif;" name="button"
+                    class="w-full flex justify-center bg-sky-500  hover:bg-sky-600 text-gray-100 p-3  rounded-lg tracking-wide font-bold text-gray  cursor-pointer transition ease-in duration-200 mt-2 apply">नौकरी के लिए आवेदन</button>
+
+            </div>
+
+        </div>
+       
+    </form>
+
+
+    <dialog class="modal" style="font-family: 'Catamaran', sans-serif;" id="modal">
+        <div class="border border-black border-6 rounded-none py-4 px-4">
+
+
+            <ol class="list-decimal">
+                <img src="images/download.png" class="h-36 w-auto my-1 ml-2" alt="">
+                <h1 class="text-4xl font-bold pb-4">Warnings</h1>
+                <li>
+                    आपकी व्यक्तिगत जानकारी जैसे सामाजिक सुरक्षा नंबर और अन्य विवरण मांगने वाले नियोक्ताओं से सावधान रहें।</li>
+                <li>रोजगार के बदले पैसे मांगने वाले लोगों से सावधान रहें</li>
+                <li>यदि ठेकेदार कम काम के लिए बहुत अधिक पैसा दे रहा है</li>
+                <button type="submit" style="font-family: 'Catamaran', sans-serif;" name="button"
+                    class="w-full flex justify-center bg-sky-500  hover:bg-sky-600 text-gray-100 p-3  rounded-lg tracking-wide font-bold text-gray  cursor-pointer transition ease-in duration-200 mt-2 submit">Okay</button>
+
+
+            </ol>
+        </div>
+
+    </dialog>
+
+    <script src="js/create.js" charset="utf-8"></script>
+
+</body>
+
+</html>

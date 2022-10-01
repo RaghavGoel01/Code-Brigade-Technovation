@@ -76,23 +76,61 @@ app.get("/", function (req, res) {
 });
 
 app.get("/question", function (req, res) {
-  res.sendFile(__dirname + '/pages/question.html')
+  res.sendFile(__dirname + '/pages/english/question.html')
 });
 
 app.get("/feedback", function (req, res) {
-  res.sendFile(__dirname + '/pages/feedback.html')
+  res.sendFile(__dirname + '/pages/english/feedback.html')
 });
 
 app.get("/createJob", function (req, res) {
-  res.sendFile(__dirname + "/pages/createJob.html");
+  res.sendFile(__dirname + "/pages/english/createJob.html");
 });
 
 app.get("/apply", function (req, res) {
-  res.sendFile(__dirname + "/pages/apply.html")
+  res.sendFile(__dirname + "/pages/english/apply.html")
 })
 
 app.get("/skills", function(req,res){
-  res.sendFile(__dirname+"/pages/skills.html")
+  res.sendFile(__dirname+"/pages/english/skills.html")
+});
+
+
+
+
+
+app.get("/hindi", function (req, res) {
+  Job.find({}, function (err, jobs) {
+
+    if (err) {
+      console.log(err);
+    } else {
+      res.render("indexHindi", {
+        postedJobs: []
+      });
+    }
+
+  })
+});
+
+app.get("/questionHindi", function (req, res) {
+  res.sendFile(__dirname + '/pages/hindi/question.html')
+});
+
+app.get("/feedbackHindi", function (req, res) {
+  res.sendFile(__dirname + '/pages/hindi/feedback.html')
+});
+
+app.get("/createJobHindi", function (req, res) {
+  res.sendFile(__dirname + "/pages/hindi/createJob.html");
+});
+
+app.get("/applyHindi", function (req, res) {
+  res.sendFile(__dirname + "/pages/hindi/apply.html")
+})
+
+app.get("/skillsHindi", function(req,res){
+  res.sendFile(__dirname+"/pages/hindi/skills.html")
 });
 
 
@@ -111,7 +149,7 @@ app.post("/feedbackSubmit", function (req, res) {
     if (err) {
       res.send(err);
     } else {
-      res.sendFile(__dirname + "/pages/successFeedback.html")
+      res.sendFile(__dirname + "/pages/english/successFeedback.html")
     }
   });
 });
@@ -129,7 +167,7 @@ app.post("/questionSubmit", function (req, res) {
     if (err) {
       res.send(err);
     } else {
-      res.sendFile(__dirname + "/pages/successQuestion.html")
+      res.sendFile(__dirname + "/pages/english/successQuestion.html")
     }
   });
 
@@ -189,7 +227,108 @@ app.post("/search", function (req, res) {
             searchDuration: jobs[i].duration
           })
         } else {
-          res.sendFile(__dirname + "/pages/fail.html")
+          res.sendFile(__dirname + "/pages/english/fail.html")
+        }
+      }
+    }
+  });
+})
+
+
+
+
+
+app.post("/feedbackSubmitHindi", function (req, res) {
+
+  const feedback = new Feedback({
+    mail: req.body.email,
+    subject: req.body.subject,
+    description: req.body.description
+  });
+
+  feedback.save(function (err) {
+    if (err) {
+      res.send(err);
+    } else {
+      res.sendFile(__dirname + "/pages/hindi/successFeedback.html")
+    }
+  });
+});
+
+
+app.post("/questionSubmitHindi", function (req, res) {
+
+  const question = new Question({
+    mail: req.body.email,
+    name: req.body.fName,
+    description: req.body.message
+  });
+
+  question.save(function (err) {
+    if (err) {
+      res.send(err);
+    } else {
+      res.sendFile(__dirname + "/pages/hindi/successQuestion.html")
+    }
+  });
+
+});
+
+app.post("/jobCreateHindi", function (req, res) {
+  const job = new Job({
+    name: req.body.jName,
+    jobName: req.body.jTitle,
+    jobDescription: req.body.jDesc,
+    location: req.body.jLocation,
+    duration: req.body.jDuration,
+    contact: req.body.jPno,
+    email: req.body.jMail,
+    wage: req.body.jWage
+  });
+
+  job.save(function (err) {
+    if (err) {
+      console.log(err);
+    } else {
+      res.redirect("/hindi");
+    }
+  })
+
+});
+
+app.post("/appliedHindi", function (req, res) {
+  const apply = new Apply({
+    name: req.body.name,
+    age: req.body.age,
+    contact: req.body.pno,
+    location: req.body.location,
+    about: req.body.desc
+  });
+
+  apply.save(function (err) {
+    if (err) {
+      console.log(err);
+    } else {
+      res.redirect("/hindi");
+    }
+  })
+});
+
+app.post("/searchHindi", function (req, res) {
+  Job.find({}, function (err, jobs) {
+    if (err) {
+      console.log(err);
+    } else {
+      for (var i = 0; i < jobs.length; i++) {
+        if (jobs[i].location == req.body.reqLocation || jobs[i].jobName == req.body.reqKeyword) {
+          res.render("searched", {
+            searchName: jobs[i].jobName,
+            searchWage: jobs[i].wage,
+            searchLocation: jobs[i].location,
+            searchDuration: jobs[i].duration
+          })
+        } else {
+          res.sendFile(__dirname + "/pages/hindi/fail.html")
         }
       }
     }
@@ -199,6 +338,6 @@ app.post("/search", function (req, res) {
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-app.listen(process.env.PORT, () => {
+app.listen(process.env.PORT || 3000, () => {
   console.log(`Server started on port`);
 });

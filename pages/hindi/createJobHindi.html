@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <title>नौकरी बनाएँ</title>
+  <!-- Google Fonts Link -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Catamaran:wght@100;200;300;400;500;600;700;800;900&family=Ubuntu:wght@300;400;500;700&display=swap" rel="stylesheet">
+  <!-- Tailwind CDN Link -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              lightblue: '#f2f6fd',
+              darkblue : '#b1cdfc'
+            }
+          }
+        }
+      }
+    </script>
+
+  <!-- Stylesheet Link -->
+  <link rel="stylesheet" href="styles.css">
+  <script src="https://kit.fontawesome.com/9a687040e3.js" crossorigin="anonymous"></script>
+
+</head>
+
+<body class="bg-gradient-to-b from-lightblue to-darkblue md:pb-20 md:mt-20 sm:pb-4 sm:mt-4">
+  <form class="" action="/jobCreateHindi" method="post">
+
+
+  <div class="px-8 bg-white mx-auto rounded-3xl h-full pb-8 justify-center w-80 md:w-fit">
+    <div>
+      <h1 class="sm:text-3xl md:text-3xl font-extrabold text-center pt-8 pb-2" style=" font-family: 'Ubuntu', sans-serif;">नौकरी आवेदन बनाएँ</h1>
+      <p class="sm:text-sm md:text-lg mx-0 text-gray-600 text-center mb-3 mt-2" style="font-family: 'Catamaran', sans-serif;">प्रासंगिक नौकरी विवरण और आवश्यकताएं दर्ज करें</p>
+    </div>
+    <div class="md:space-y-6 sm:space-y-3">
+      <div class="">
+        <label for="name" class="" style="font-family: 'Catamaran', sans-serif;">नियोक्ता या ठेकेदार का नाम</label>
+        <input type="text" id="name" name="jName" placeholder="अमित कुमार" class="px-3 py-3 w-full border border-gray-600 rounded-lg focus:outline-none focus:border-blue-400 mt-1">
+
+      </div>
+      <div class="">
+
+        <label for="title" class="" style="font-family: 'Catamaran', sans-serif;">नौकरी का नाम</label>
+        <input type="text" id="title" name="Title" placeholder="बिजली मिस्त्री" class="px-3 py-3 w-full border border-gray-600 rounded-lg focus:outline-none focus:border-blue-400 mt-1">
+
+      </div>
+      <div class="">
+        <label for="description" class="" style="font-family: 'Catamaran', sans-serif;">नौकरी का विवरण</label>
+        <textarea name="jDesc" id="description" placeholder="नौकरी की सुरक्षा, शामिल जोखिम आदि जैसे विवरणों सहित नौकरी का संक्षेप में वर्णन करें।" class="px-3 py-3 w-full border border-gray-600 rounded-lg focus:outline-none focus:border-blue-400 mt-1" rows="2">
+          </textarea>
+
+      </div>
+
+      <div
+
+        <label for="location" class="" style="font-family: 'Catamaran', sans-serif;">स्थान</label>
+        <input type="text" id="location" name="jLocation" placeholder="उत्तर प्रदेश, अलीगढ़" class="px-3 py-3 w-full border border-gray-600 rounded-lg focus:outline-none focus:border-blue-400 mt-1">
+
+      </div>
+      <div class="">
+        <label for="duration" class="" style="font-family: 'Catamaran', sans-serif;">अवधि</label>
+        <input type="text" id="duration" name="jDuration" placeholder="3 महीने" class="px-3 py-3 w-full border border-gray-600 rounded-lg focus:outline-none focus:border-blue-400 mt-1">
+
+      </div>
+      <div class="">
+        <label for="mobile-no" class="" style="font-family: 'Catamaran', sans-serif;">संपर्क नंबर</label>
+        <input type="text" id="mobile-no" name="jPno" placeholder="987654321" class="px-3 py-3 w-full border border-gray-600 rounded-lg focus:outline-none focus:border-blue-400 mt-1">
+
+      </div>
+      <div class="">
+        <label for="email" class="" style="font-family: 'Catamaran', sans-serif;">ईमेल आईडी</label>
+        <input type="email" id="email" name="jMail" placeholder="abcd@gmail.com" class="px-3 py-3 w-full border border-gray-600 rounded-lg focus:outline-none focus:border-blue-400 mt-1">
+
+      </div>
+      <div class="relative">
+        <label for="wages" style="font-family: 'Catamaran', sans-serif;">दैनिक आधार पर दी जाने वाली मजदूरी</label>
+        <i class="fa-solid fa-indian-rupee-sign absolute bottom-0 left-2 top-12"></i>
+        <input type="text" id="wages" name="jWage" placeholder="" class="px-5 py-3 w-full border border-gray-600 rounded-lg focus:outline-none focus:border-blue-400 mt-1">
+
+      </div>
+      <button type="submit" style="font-family: 'Catamaran', sans-serif;" name="button" class="w-full flex justify-center bg-sky-500  hover:bg-sky-600 text-gray-100 p-3  rounded-lg tracking-wide font-bold text-gray  cursor-pointer transition ease-in duration-200 mt-2 apply">नौकरी पोस्ट करें</button>
+
+    </div>
+
+  </div>
+
+  </form>
+
+
+
+</body>
+
+</html>

@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+  <title>नौकरी खोजें</title>
+  <meta content="" name="description">
+  <meta content="" name="keywords">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.1.3/dist/css/bootstrap.min.css"
+    integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+
+
+  <script src="https://kit.fontawesome.com/9a687040e3.js" crossorigin="anonymous"></script>
+
+  <!-- Google Fonts -->
+  <link
+    href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i"
+    rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+  <link href="vendor/aos/aos.css" rel="stylesheet">
+  <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+  <link href="vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
+  <link href="vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+  <link href="vendor/remixicon/remixicon.css" rel="stylesheet">
+  <link href="vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+
+  <!-- Template Main CSS File -->
+  <link href="css/style.css" rel="stylesheet">
+  <link rel="stylesheet" href="css/lists.css">
+  <link rel="manifest" href="../manifest.json">
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            lightblue: '#f2f6fd',
+            darkblue: '#b1cdfc'
+          }
+        }
+      }
+    }
+  </script>
+</head>
+
+<body class="bg-gradient-to-t from-lightblue to-darkblue">
+
+  <!-- ======= Header ======= -->
+  <header id="header" class="">
+    <div class="container d-flex align-items-center justify-content-between">
+
+      <h1 class="logo"><a href="index.html">जीविका</a></h1>
+      <!-- Uncomment below if you prefer to use an image logo -->
+      <!-- <a href="index.html" class="logo"><img src="assets/img/logo.png" alt="" class="img-fluid"></a>-->
+
+      <nav id="navbar" class="navbar">
+        <ul>
+          <li class="dropdown"><a href="#"><span>भाषा</span> <i class="bi bi-chevron-down"></i></a>
+            <ul>
+              <li><a href="/">अंग्रेज़ी</a></li>
+              <li><a href="/hindi">हिन्दी</a></li>
+            </ul>
+          </li>
+          <li><a class="nav-link scrollto" href="#help">मदद</a></li>
+          <li><a class="getstarted scrollto" href="/skillsHindi">नए हुनर ​​सीखना</a></li>
+        </ul>
+        <i class="bi bi-list mobile-nav-toggle"></i>
+      </nav><!-- .navbar -->
+
+    </div>
+  </header><!-- End Header -->
+
+  <!-- ======= Hero Section ======= -->
+  <section id="hero" class="d-flex align-items-center">
+    <div class="container position-relative" data-aos="fade-up" data-aos-delay="100">
+      <div class="row justify-content-center">
+        <div class="col-xl-7 col-lg-9 text-center">
+          <h1>अब हर किसी को मिलेगी नौकरी।</h1>
+          <h1>जॉब के लिए खोजें</h1>
+          <h2>मजदूरों के लिए खास</h2>
+        </div>
+      </div>
+      <div class="text-center">
+        <a href="/createJobHindi" class="btn-get-started scrollto">नई नौकरी पोस्ट करें</a>
+
+        <h2 style="
+        margin-top: 4rem;
+    ">OR</h2>
+      </div>
+
+      <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/material-design-iconic-font/2.2.0/css/material-design-iconic-font.min.css"
+        integrity="sha256-3sPp8BkKUE7QyPSl6VfBByBroQbKxKG7tsusY2mhbVY=" crossorigin="anonymous" />
+
+      <div class="container">
+        <div class="row ">
+          <div class="col-lg-10 mx-auto">
+            <div class="career-search mb-60">
+
+              <form action="/searchHindi" method="post" class="career-form mb-16 bg-white">
+                <div class="row ">
+                  
+                    <div class="col-md-4 col-lg-5 my-3">
+                      <div class="select-container ">
+                        <input type="text" name="reqLocation"
+                          class="custom-select border border-blue-500 hover:border-black rounded-lg text-black"
+                          placeholder="Enter Location ">
+                      </div>
+                    </div>
+  
+                    <div class="col-md-4 col-lg-5 my-3">
+                      <div class="select-container ">
+                        <input type="text" name="reqKeyword"
+                          class="custom-select border border-blue-500 hover:border-transparent rounded-lg text-black"
+                          placeholder="Enter a keyword">
+  
+  
+                      </div>
+                    </div>
+                    <div class="col-md-4 col-lg-2 my-3">
+                      <button type="submit"
+                        class="border border-blue-500 btn-lg text-white w-100 d-sm-inline-block bg-blue-500 hover:bg-blue-700  rounded-lg tracking-wide font-medium  cursor-pointer transition ease-in duration-200 px-">
+                        खोज
+                      </button>
+                    </div>
+                                  
+                </div>
+              </form>
+
+              <div class="filter-result">
+                <p class="mb-30 ff-montserrat">कुल नौकरी के उद्घाटन : 30</p>
+
+
+                <% postedJobs.forEach(function(element){  %>
+                 
+                  <div class="job-box d-md-flex align-items-center justify-content-between mb-30 bg-white h-full w-full">
+                    <div class="job-left my-3 d-md-flex align-items-center flex-wrap ">
+                      <form action="/jobDetails" method="post">
+                        <div class="job-content">
+                          <h5 class=" text-md-left text-black ml-1 mb-3 font-bold"
+                            style="font-family: 'Montserrat', sans-serif;"><%= element.jobName%></h5>
+                          <ul class="d-md-flex text-left flex-wrap text-capitalize ff-open-sans">
+                            <li class="mr-md-4 text-black">
+                              <i class="fa-sharp fa-solid fa-coins mr-2 text-black"></i> <%= element.wage%>Rs / Day
+                            </li>
+                            <li class="mr-md-4 text-black">
+                              <i class="fas fa-map-marker-alt mr-2 text-black"></i> <%= element.location%>
+                            </li>
+                            <li class="mr-md-4 text-black">
+                              <i class="fa-regular fa-clock mr-2 text-black"></i><%= element.duration%>
+                            </li>
+                          </ul>
+                          <p class="mr-md-4 mt-3 text-black">
+                            <i class="fa-solid fa-briefcase mr-2 text-black"></i><%= element.jobDescription%>
+                          
+                          </p>
+                        </div>
+                      </form>
+  
+                    </div>
+                    <div class="job-right my-4 flex-shrink-0">
+                      <a href="/applyHindi" class="btn-primary btn">
+                        आवेदन करना</a>
+                    </div>
+                  </div>
+                <%  }); %>
+                <br>
+
+                
+
+              </div>
+            </div>
+
+
+          </div>
+        </div>
+
+      </div>
+      <!-- End Hero -->
+
+
+      <div class="flex flex-center justify-center">
+        <form action="/questionHindi">
+          <button type="submit" formtarget="/questionHindi"
+            class="border mx-2 border-blue-500 btn-lg text-white inline-block bg-blue-500 hover:bg-blue-700  rounded-lg tracking-wide font-medium  cursor-pointer transition ease-in duration-200 px-">
+            प्रश्न पूछें
+          </button>
+        </form>
+        <form action="/feedbackHindi">
+          <button type="submit" formtarget="/feedbackHindi"
+            class="border mx-2  border-blue-500 btn-lg text-white inline-block bg-blue-500 hover:bg-blue-700  rounded-lg tracking-wide font-medium  cursor-pointer transition ease-in duration-200 px-">
+            प्रतिक्रिया दें
+          </button>
+        </form>
+      </div>
+
+      <div id="help" class="container flex flex-center justify-center text-center align-items-center py-4">
+
+        <div class="text-center ">
+          <div class="copyright">
+            &copy; Copyright <strong><span>CodeBrigade</span></strong>. All Rights Reserved
+          </div>
+        </div>
+      </div>
+    </div>
+    </footer><!-- End Footer -->
+
+    <div id="preloader"></div>
+    <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i
+        class="bi bi-arrow-up-short"></i></a>
+
+        <script>
+          if ('serviceWorker' in navigator) {
+           window.addEventListener('load', function() {
+             navigator.serviceWorker.register('/service_worker.js').then(function(registration) {
+               // Registration was successful
+               console.log('ServiceWorker registration successful with scope: ', registration.scope);
+             }, function(err) {
+               // registration failed :(
+               console.log('ServiceWorker registration failed: ', err);
+             });
+           });
+         }
+         </script>
+
+    <!-- Vendor JS Files -->
+    <script src="vendor/purecounter/purecounter_vanilla.js"></script>
+    <script src="vendor/aos/aos.js"></script>
+    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="vendor/glightbox/js/glightbox.min.js"></script>
+    <script src="vendor/isotope-layout/isotope.pkgd.min.js"></script>
+    <script src="vendor/swiper/swiper-bundle.min.js"></script>
+    <script src="vendor/php-email-form/validate.js"></script>
+
+    <!-- Template Main JS File -->
+    <script src="js/main.js"></script>
+
+</body>
+
+</html>

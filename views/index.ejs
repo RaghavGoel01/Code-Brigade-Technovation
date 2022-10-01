@@ -100,31 +100,33 @@
           <div class="col-lg-10 mx-auto">
             <div class="career-search mb-60">
 
-              <form action="#" class="career-form mb-16 bg-white">
+              <form action="/search" method="post" class="career-form mb-16 bg-white">
                 <div class="row ">
-                  <div class="col-md-4 col-lg-5 my-3">
-                    <div class="select-container ">
-                      <input type="text"
-                        class="custom-select border border-blue-500 hover:border-black rounded-lg text-black"
-                        placeholder="Enter Location ">
+                  
+                    <div class="col-md-4 col-lg-5 my-3">
+                      <div class="select-container ">
+                        <input type="text" name="reqLocation"
+                          class="custom-select border border-blue-500 hover:border-black rounded-lg text-black"
+                          placeholder="Enter Location ">
+                      </div>
                     </div>
-                  </div>
-
-                  <div class="col-md-4 col-lg-5 my-3">
-                    <div class="select-container ">
-                      <input type="text"
-                        class="custom-select border border-blue-500 hover:border-transparent rounded-lg text-black"
-                        placeholder="Enter a keyword">
-
-
+  
+                    <div class="col-md-4 col-lg-5 my-3">
+                      <div class="select-container ">
+                        <input type="text" name="reqKeyword"
+                          class="custom-select border border-blue-500 hover:border-transparent rounded-lg text-black"
+                          placeholder="Enter a keyword">
+  
+  
+                      </div>
                     </div>
-                  </div>
-                  <div class="col-md-4 col-lg-2 my-3">
-                    <button type="button"
-                      class="border border-blue-500 btn-lg text-white w-100 d-sm-inline-block bg-blue-500 hover:bg-blue-700  rounded-lg tracking-wide font-medium  cursor-pointer transition ease-in duration-200 px-">
-                      Search
-                    </button>
-                  </div>
+                    <div class="col-md-4 col-lg-2 my-3">
+                      <button type="submit"
+                        class="border border-blue-500 btn-lg text-white w-100 d-sm-inline-block bg-blue-500 hover:bg-blue-700  rounded-lg tracking-wide font-medium  cursor-pointer transition ease-in duration-200 px-">
+                        Search
+                      </button>
+                    </div>
+                                  
                 </div>
               </form>
 
@@ -138,7 +140,7 @@
                     <div class="job-left my-3 d-md-flex align-items-center flex-wrap ">
                       <form action="/jobDetails" method="post">
                         <div class="job-content">
-                          <h5 class=" text-md-left text-black ml-2 mb-3 font-bold"
+                          <h5 class=" text-md-left text-black ml-1 mb-3 font-bold"
                             style="font-family: 'Montserrat', sans-serif;"><%= element.jobName%></h5>
                           <ul class="d-md-flex text-left flex-wrap text-capitalize ff-open-sans">
                             <li class="mr-md-4 text-black">
@@ -151,13 +153,17 @@
                               <i class="fa-regular fa-clock mr-2 text-black"></i><%= element.duration%>
                             </li>
                           </ul>
+                          <p class="mr-md-4 mt-3 text-black">
+                            <i class="fa-solid fa-briefcase mr-2 text-black"></i><%= element.jobDescription%>
+                          
+                          </p>
                         </div>
                       </form>
   
                     </div>
                     <div class="job-right my-4 flex-shrink-0">
-                      <a href="#" class="btn-primary btn">
-                        More Details</a>
+                      <a href="/apply" class="btn-primary btn">
+                        Apply</a>
                     </div>
                   </div>
                 <%  }); %>

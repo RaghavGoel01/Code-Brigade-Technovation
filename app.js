@@ -88,6 +88,10 @@ app.get("/createJob", function (req, res) {
   res.sendFile(__dirname + "/pages/createJob.html");
 });
 
+app.get("/apply", function(req,res){
+  res.sendFile(__dirname + "/")
+})
+
 
 /////////////////////////////////////////////////////  POST FUNCTIONS  /////////////////////////////////////////////////////////////////////////////////
 
@@ -149,6 +153,29 @@ app.post("/jobCreate", function (req, res) {
   })
 
 });
+
+
+app.post("/search", function(req,res){
+  Job.find({}, function(err, jobs){
+    if(err){
+      console.log(err);
+    }else{
+      for(var i = 0; i< jobs.length; i++){
+        if(jobs[i].location == req.body.reqLocation || jobs[i].jobName == req.body.reqKeyword){
+          res.render("searched", {
+            searchName : jobs[i].jobName,
+            searchWage : jobs[i].wage,
+            searchLocation : jobs[i].location,
+            searchDuration: jobs[i].duration
+          })
+        }else{
+          res.sendFile(__dirname +"/pages/fail.html")
+        }
+      }
+    }
+  });
+})
+
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
